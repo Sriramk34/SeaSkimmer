@@ -1,0 +1,2 @@
+movement
+-DCATKIN_DEVEL_PREFIX=/home/pi/internship/devel -DCMAKE_INSTALL_PREFIX=/home/pi/internship/install -G Unix Makefiles
