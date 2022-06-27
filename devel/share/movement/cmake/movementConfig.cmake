@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(movement_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "/home/pi/internship/devel/include " STREQUAL " ")
   set(movement_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "/home/pi/internship/devel/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(movement_EXPORTED_TARGETS "")
+set(movement_EXPORTED_TARGETS "movement_generate_messages_cpp;movement_generate_messages_eus;movement_generate_messages_lisp;movement_generate_messages_nodejs;movement_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${movement_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -185,7 +185,7 @@ foreach(t ${movement_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "")
+set(depends "message_runtime")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   _list_append_deduplicate(movement_EXPORTED_TARGETS ${${movement_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "movement-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${movement_DIR}/${extra})
