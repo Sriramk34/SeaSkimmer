@@ -1,2 +1,2 @@
 movement
--DCATKIN_DEVEL_PREFIX=/home/pi/internship/devel -DCMAKE_INSTALL_PREFIX=/home/pi/internship/install -G Unix Makefiles
+-DCATKIN_DEVEL_PREFIX=/home/sahana/Desktop/SeaSkimmer/devel -DCMAKE_INSTALL_PREFIX=/home/sahana/Desktop/SeaSkimmer/install -G Unix Makefiles
