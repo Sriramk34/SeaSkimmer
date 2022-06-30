@@ -8,4 +8,3 @@
 
 # modified environment variables
 export PWD='/home/pi/internship/build'
-export PYTHONPATH="/home/pi/internship/devel/lib/python3/dist-packages:$PYTHONPATH"

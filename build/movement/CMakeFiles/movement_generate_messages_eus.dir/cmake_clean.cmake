@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "/home/pi/internship/devel/share/roseus/ros/movement/manifest.l"
   "/home/pi/internship/devel/share/roseus/ros/movement/msg/accgyro.l"
+  "/home/pi/internship/devel/share/roseus/ros/movement/msg/gpgga.l"
+  "/home/pi/internship/devel/share/roseus/ros/movement/msg/gpvtg.l"
   "CMakeFiles/movement_generate_messages_eus"
 )
 

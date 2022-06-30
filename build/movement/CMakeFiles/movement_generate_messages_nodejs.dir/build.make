@@ -54,6 +54,8 @@ CMAKE_BINARY_DIR = /home/pi/internship/build
 include movement/CMakeFiles/movement_generate_messages_nodejs.dir/progress.make
 
 movement/CMakeFiles/movement_generate_messages_nodejs: /home/pi/internship/devel/share/gennodejs/ros/movement/msg/accgyro.js
+movement/CMakeFiles/movement_generate_messages_nodejs: /home/pi/internship/devel/share/gennodejs/ros/movement/msg/gpgga.js
+movement/CMakeFiles/movement_generate_messages_nodejs: /home/pi/internship/devel/share/gennodejs/ros/movement/msg/gpvtg.js
 
 
 /home/pi/internship/devel/share/gennodejs/ros/movement/msg/accgyro.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
@@ -62,8 +64,22 @@ movement/CMakeFiles/movement_generate_messages_nodejs: /home/pi/internship/devel
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/internship/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from movement/accgyro.msg"
 	cd /home/pi/internship/build/movement && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/pi/internship/src/movement/msg/accgyro.msg -Imovement:/home/pi/internship/src/movement/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p movement -o /home/pi/internship/devel/share/gennodejs/ros/movement/msg
 
+/home/pi/internship/devel/share/gennodejs/ros/movement/msg/gpgga.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/pi/internship/devel/share/gennodejs/ros/movement/msg/gpgga.js: /home/pi/internship/src/movement/msg/gpgga.msg
+/home/pi/internship/devel/share/gennodejs/ros/movement/msg/gpgga.js: /opt/ros/noetic/share/std_msgs/msg/Float32.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/internship/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from movement/gpgga.msg"
+	cd /home/pi/internship/build/movement && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/pi/internship/src/movement/msg/gpgga.msg -Imovement:/home/pi/internship/src/movement/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p movement -o /home/pi/internship/devel/share/gennodejs/ros/movement/msg
+
+/home/pi/internship/devel/share/gennodejs/ros/movement/msg/gpvtg.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/pi/internship/devel/share/gennodejs/ros/movement/msg/gpvtg.js: /home/pi/internship/src/movement/msg/gpvtg.msg
+/home/pi/internship/devel/share/gennodejs/ros/movement/msg/gpvtg.js: /opt/ros/noetic/share/std_msgs/msg/Float32.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/internship/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from movement/gpvtg.msg"
+	cd /home/pi/internship/build/movement && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/pi/internship/src/movement/msg/gpvtg.msg -Imovement:/home/pi/internship/src/movement/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p movement -o /home/pi/internship/devel/share/gennodejs/ros/movement/msg
+
 movement_generate_messages_nodejs: movement/CMakeFiles/movement_generate_messages_nodejs
 movement_generate_messages_nodejs: /home/pi/internship/devel/share/gennodejs/ros/movement/msg/accgyro.js
+movement_generate_messages_nodejs: /home/pi/internship/devel/share/gennodejs/ros/movement/msg/gpgga.js
+movement_generate_messages_nodejs: /home/pi/internship/devel/share/gennodejs/ros/movement/msg/gpvtg.js
 movement_generate_messages_nodejs: movement/CMakeFiles/movement_generate_messages_nodejs.dir/build.make
 
 .PHONY : movement_generate_messages_nodejs

@@ -3,5 +3,9 @@
   (:export
    "<ACCGYRO>"
    "ACCGYRO"
+   "<GPGGA>"
+   "GPGGA"
+   "<GPVTG>"
+   "GPVTG"
   ))
 

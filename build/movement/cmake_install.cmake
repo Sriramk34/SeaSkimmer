@@ -38,7 +38,11 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/movement/msg" TYPE FILE FILES "/home/pi/internship/src/movement/msg/accgyro.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/movement/msg" TYPE FILE FILES
+    "/home/pi/internship/src/movement/msg/accgyro.msg"
+    "/home/pi/internship/src/movement/msg/gpgga.msg"
+    "/home/pi/internship/src/movement/msg/gpvtg.msg"
+    )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -110,5 +114,13 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/movement" TYPE PROGRAM FILES "/home/pi/internship/build/movement/catkin_generated/installspace/calibrate.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/movement" TYPE PROGRAM FILES "/home/pi/internship/build/movement/catkin_generated/installspace/gpsdecode.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/movement" TYPE PROGRAM FILES "/home/pi/internship/build/movement/catkin_generated/installspace/statePredict.py")
 endif()
 

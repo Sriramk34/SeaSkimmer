@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/pi/internship/src/movement/msg/accgyro.msg"
+messages_str = "/home/pi/internship/src/movement/msg/accgyro.msg;/home/pi/internship/src/movement/msg/gpgga.msg;/home/pi/internship/src/movement/msg/gpvtg.msg"
 services_str = ""
 pkg_name = "movement"
 dependencies_str = "std_msgs"

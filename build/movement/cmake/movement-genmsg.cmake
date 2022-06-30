@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "movement: 1 messages, 0 services")
+message(STATUS "movement: 3 messages, 0 services")
 
 set(MSG_I_FLAGS "-Imovement:/home/pi/internship/src/movement/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
@@ -22,6 +22,16 @@ add_custom_target(_movement_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "movement" "/home/pi/internship/src/movement/msg/accgyro.msg" "std_msgs/Float32"
 )
 
+get_filename_component(_filename "/home/pi/internship/src/movement/msg/gpgga.msg" NAME_WE)
+add_custom_target(_movement_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "movement" "/home/pi/internship/src/movement/msg/gpgga.msg" "std_msgs/Float32"
+)
+
+get_filename_component(_filename "/home/pi/internship/src/movement/msg/gpvtg.msg" NAME_WE)
+add_custom_target(_movement_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "movement" "/home/pi/internship/src/movement/msg/gpvtg.msg" "std_msgs/Float32"
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -30,6 +40,18 @@ add_custom_target(_movement_generate_messages_check_deps_${_filename}
 ### Generating Messages
 _generate_msg_cpp(movement
   "/home/pi/internship/src/movement/msg/accgyro.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Float32.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/movement
+)
+_generate_msg_cpp(movement
+  "/home/pi/internship/src/movement/msg/gpgga.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Float32.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/movement
+)
+_generate_msg_cpp(movement
+  "/home/pi/internship/src/movement/msg/gpvtg.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Float32.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/movement
@@ -51,6 +73,10 @@ add_dependencies(movement_generate_messages movement_generate_messages_cpp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/pi/internship/src/movement/msg/accgyro.msg" NAME_WE)
 add_dependencies(movement_generate_messages_cpp _movement_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/internship/src/movement/msg/gpgga.msg" NAME_WE)
+add_dependencies(movement_generate_messages_cpp _movement_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/internship/src/movement/msg/gpvtg.msg" NAME_WE)
+add_dependencies(movement_generate_messages_cpp _movement_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(movement_gencpp)
@@ -63,6 +89,18 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS movement_generate_messages_cpp)
 ### Generating Messages
 _generate_msg_eus(movement
   "/home/pi/internship/src/movement/msg/accgyro.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Float32.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/movement
+)
+_generate_msg_eus(movement
+  "/home/pi/internship/src/movement/msg/gpgga.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Float32.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/movement
+)
+_generate_msg_eus(movement
+  "/home/pi/internship/src/movement/msg/gpvtg.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Float32.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/movement
@@ -84,6 +122,10 @@ add_dependencies(movement_generate_messages movement_generate_messages_eus)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/pi/internship/src/movement/msg/accgyro.msg" NAME_WE)
 add_dependencies(movement_generate_messages_eus _movement_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/internship/src/movement/msg/gpgga.msg" NAME_WE)
+add_dependencies(movement_generate_messages_eus _movement_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/internship/src/movement/msg/gpvtg.msg" NAME_WE)
+add_dependencies(movement_generate_messages_eus _movement_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(movement_geneus)
@@ -96,6 +138,18 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS movement_generate_messages_eus)
 ### Generating Messages
 _generate_msg_lisp(movement
   "/home/pi/internship/src/movement/msg/accgyro.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Float32.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/movement
+)
+_generate_msg_lisp(movement
+  "/home/pi/internship/src/movement/msg/gpgga.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Float32.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/movement
+)
+_generate_msg_lisp(movement
+  "/home/pi/internship/src/movement/msg/gpvtg.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Float32.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/movement
@@ -117,6 +171,10 @@ add_dependencies(movement_generate_messages movement_generate_messages_lisp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/pi/internship/src/movement/msg/accgyro.msg" NAME_WE)
 add_dependencies(movement_generate_messages_lisp _movement_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/internship/src/movement/msg/gpgga.msg" NAME_WE)
+add_dependencies(movement_generate_messages_lisp _movement_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/internship/src/movement/msg/gpvtg.msg" NAME_WE)
+add_dependencies(movement_generate_messages_lisp _movement_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(movement_genlisp)
@@ -129,6 +187,18 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS movement_generate_messages_lisp)
 ### Generating Messages
 _generate_msg_nodejs(movement
   "/home/pi/internship/src/movement/msg/accgyro.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Float32.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/movement
+)
+_generate_msg_nodejs(movement
+  "/home/pi/internship/src/movement/msg/gpgga.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Float32.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/movement
+)
+_generate_msg_nodejs(movement
+  "/home/pi/internship/src/movement/msg/gpvtg.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Float32.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/movement
@@ -150,6 +220,10 @@ add_dependencies(movement_generate_messages movement_generate_messages_nodejs)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/pi/internship/src/movement/msg/accgyro.msg" NAME_WE)
 add_dependencies(movement_generate_messages_nodejs _movement_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/internship/src/movement/msg/gpgga.msg" NAME_WE)
+add_dependencies(movement_generate_messages_nodejs _movement_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/internship/src/movement/msg/gpvtg.msg" NAME_WE)
+add_dependencies(movement_generate_messages_nodejs _movement_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(movement_gennodejs)
@@ -162,6 +236,18 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS movement_generate_messages_nodejs)
 ### Generating Messages
 _generate_msg_py(movement
   "/home/pi/internship/src/movement/msg/accgyro.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Float32.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/movement
+)
+_generate_msg_py(movement
+  "/home/pi/internship/src/movement/msg/gpgga.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Float32.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/movement
+)
+_generate_msg_py(movement
+  "/home/pi/internship/src/movement/msg/gpvtg.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Float32.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/movement
@@ -182,6 +268,10 @@ add_dependencies(movement_generate_messages movement_generate_messages_py)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/pi/internship/src/movement/msg/accgyro.msg" NAME_WE)
+add_dependencies(movement_generate_messages_py _movement_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/internship/src/movement/msg/gpgga.msg" NAME_WE)
+add_dependencies(movement_generate_messages_py _movement_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/internship/src/movement/msg/gpvtg.msg" NAME_WE)
 add_dependencies(movement_generate_messages_py _movement_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

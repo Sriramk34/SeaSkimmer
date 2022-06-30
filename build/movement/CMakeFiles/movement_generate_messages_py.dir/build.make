@@ -54,6 +54,8 @@ CMAKE_BINARY_DIR = /home/pi/internship/build
 include movement/CMakeFiles/movement_generate_messages_py.dir/progress.make
 
 movement/CMakeFiles/movement_generate_messages_py: /home/pi/internship/devel/lib/python3/dist-packages/movement/msg/_accgyro.py
+movement/CMakeFiles/movement_generate_messages_py: /home/pi/internship/devel/lib/python3/dist-packages/movement/msg/_gpgga.py
+movement/CMakeFiles/movement_generate_messages_py: /home/pi/internship/devel/lib/python3/dist-packages/movement/msg/_gpvtg.py
 movement/CMakeFiles/movement_generate_messages_py: /home/pi/internship/devel/lib/python3/dist-packages/movement/msg/__init__.py
 
 
@@ -63,13 +65,29 @@ movement/CMakeFiles/movement_generate_messages_py: /home/pi/internship/devel/lib
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/internship/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG movement/accgyro"
 	cd /home/pi/internship/build/movement && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/pi/internship/src/movement/msg/accgyro.msg -Imovement:/home/pi/internship/src/movement/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p movement -o /home/pi/internship/devel/lib/python3/dist-packages/movement/msg
 
+/home/pi/internship/devel/lib/python3/dist-packages/movement/msg/_gpgga.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/pi/internship/devel/lib/python3/dist-packages/movement/msg/_gpgga.py: /home/pi/internship/src/movement/msg/gpgga.msg
+/home/pi/internship/devel/lib/python3/dist-packages/movement/msg/_gpgga.py: /opt/ros/noetic/share/std_msgs/msg/Float32.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/internship/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG movement/gpgga"
+	cd /home/pi/internship/build/movement && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/pi/internship/src/movement/msg/gpgga.msg -Imovement:/home/pi/internship/src/movement/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p movement -o /home/pi/internship/devel/lib/python3/dist-packages/movement/msg
+
+/home/pi/internship/devel/lib/python3/dist-packages/movement/msg/_gpvtg.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/pi/internship/devel/lib/python3/dist-packages/movement/msg/_gpvtg.py: /home/pi/internship/src/movement/msg/gpvtg.msg
+/home/pi/internship/devel/lib/python3/dist-packages/movement/msg/_gpvtg.py: /opt/ros/noetic/share/std_msgs/msg/Float32.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/internship/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG movement/gpvtg"
+	cd /home/pi/internship/build/movement && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/pi/internship/src/movement/msg/gpvtg.msg -Imovement:/home/pi/internship/src/movement/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p movement -o /home/pi/internship/devel/lib/python3/dist-packages/movement/msg
+
 /home/pi/internship/devel/lib/python3/dist-packages/movement/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/pi/internship/devel/lib/python3/dist-packages/movement/msg/__init__.py: /home/pi/internship/devel/lib/python3/dist-packages/movement/msg/_accgyro.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/internship/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for movement"
+/home/pi/internship/devel/lib/python3/dist-packages/movement/msg/__init__.py: /home/pi/internship/devel/lib/python3/dist-packages/movement/msg/_gpgga.py
+/home/pi/internship/devel/lib/python3/dist-packages/movement/msg/__init__.py: /home/pi/internship/devel/lib/python3/dist-packages/movement/msg/_gpvtg.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/internship/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python msg __init__.py for movement"
 	cd /home/pi/internship/build/movement && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/pi/internship/devel/lib/python3/dist-packages/movement/msg --initpy
 
 movement_generate_messages_py: movement/CMakeFiles/movement_generate_messages_py
 movement_generate_messages_py: /home/pi/internship/devel/lib/python3/dist-packages/movement/msg/_accgyro.py
+movement_generate_messages_py: /home/pi/internship/devel/lib/python3/dist-packages/movement/msg/_gpgga.py
+movement_generate_messages_py: /home/pi/internship/devel/lib/python3/dist-packages/movement/msg/_gpvtg.py
 movement_generate_messages_py: /home/pi/internship/devel/lib/python3/dist-packages/movement/msg/__init__.py
 movement_generate_messages_py: movement/CMakeFiles/movement_generate_messages_py.dir/build.make
 

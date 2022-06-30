@@ -24,9 +24,9 @@ def read(bus, ad, error):
     arr = []
     addr = 0x3B #Starting address of the data on the MPU 605
     for i in range(7):
-        t = bus.i2c.read_byte_data(ad, addr)
+        t = bus.read_byte_data(ad, addr)
         addr += 1
-        t = (t<<8)|bus.i2c.read_byte_data(ad, addr)
+        t = (t<<8)|bus.read_byte_data(ad, addr)
         addr += 1
         arr.append(t)
     values = [convert(x) for x in arr]
@@ -55,10 +55,10 @@ def talker():
     
     pub = rospy.Publisher("MPU_data", accgyro, queue_size = 10)
     rospy.init_node("MPU_Read", anonymous = False)
-    rate = rospy.rate(100)
+    rate = rospy.Rate(100)
     while not rospy.is_shutdown() and calibrated:
         accgyrodata = accgyro()
-        arr = read(i2c, addr, correction)
+        arr = read(i2c, addr, values)
         accgyrodata.accx.data = arr[0]
         accgyrodata.accy.data = arr[1]
         accgyrodata.accz.data = arr[2]

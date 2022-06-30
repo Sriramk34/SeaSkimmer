@@ -51,6 +51,8 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
    FILES
    accgyro.msg
+   gpgga.msg
+   gpvtg.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -167,6 +169,8 @@ include
    scripts/controller.py
    scripts/mpudata.py
    scripts/calibrate.py
+   scripts/gpsdecode.py
+   scripts/statePredict.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 
