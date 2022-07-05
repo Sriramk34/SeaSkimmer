@@ -1,9 +1,29 @@
 #!/usr/bin/env python
-
 import rospy
 from smbus import SMBus as sm
 import time
 from movement.msg import accgyro
+from scipy.signal import butter, lfilter
+import configparser
+
+class filter:
+    def __init__(self, cutoff, fs):
+        self.num = 6
+        self.a, self.b = butter(5, cutoff, fs=fs, btype='low', analog=False)
+        self.mem = []
+        for i in range(self.num):
+            self.mem.append([0, 0, 0, 0, 0, 0])
+
+    def update_mem(self, arr):      #Queue to store the six most recent values for lpf
+        for i in range(self.num):
+            self.mem[i].pop(0)
+            self.mem[i].append(arr[i])
+
+    def lpf(self): #Call Update before using lowpass filter
+        res = []
+        for i in self.mem:
+            res.append(lfilter(self.a, self.b, i)[5])
+        return res
 
 def convert(x):
     bnum = list(bin(x))[2:]
@@ -19,8 +39,7 @@ def convert(x):
     else:
         return x
 
-
-def read(bus, ad, error):
+def read(bus, ad, error, memory):
     arr = []
     addr = 0x3B #Starting address of the data on the MPU 605
     for i in range(7):
@@ -38,7 +57,7 @@ def read(bus, ad, error):
     values[6] = values[6]/131.0 - error[5]
     return values
 
-def talker():
+def talker(mem):
     rospy.loginfo("Run Calibrate before running this file")
     addr = 0x68
     i2c = sm(1)
@@ -58,7 +77,9 @@ def talker():
     rate = rospy.Rate(100)
     while not rospy.is_shutdown() and calibrated:
         accgyrodata = accgyro()
-        arr = read(i2c, addr, values)
+        rawData = read(i2c, addr, values)
+        mem.update_mem(rawData)
+        arr = mem.lpf()
         accgyrodata.accx.data = arr[0]
         accgyrodata.accy.data = arr[1]
         accgyrodata.accz.data = arr[2]
@@ -68,8 +89,14 @@ def talker():
         pub.publish(accgyrodata)
         rate.sleep()
     i2c.close()
+    
 if __name__ == '__main__':
+    config = configparser.ConfigParser()
+    config.read("botconf.ini")
+    f_sample = int(config['MPU']['sample_freq'])
+    f_cutoff = int(config['MPU']['cutoff_freq'])
     try:
-        talker()
+        memobj = filter(f_cutoff, f_sample)
+        talker(memobj)
     except rospy.ROSInterruptException :
         pass
