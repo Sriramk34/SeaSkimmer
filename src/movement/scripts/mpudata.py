@@ -26,18 +26,7 @@ class filter:
         return res
 
 def convert(x):
-    bnum = list(bin(x))[2:]
-    res = ""
-    if len(bnum) == 16:
-        bnum.pop(0)
-        for i in bnum:
-            if i == "0":
-                res += "1"
-            else:
-                res += "0"
-        return -1*int(res,2)
-    else:
-        return x
+    return -(x & 0x8000) + (x & 0x7FFF)
 
 def read(bus, ad, error, memory):
     arr = []
