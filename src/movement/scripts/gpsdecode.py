@@ -2,11 +2,31 @@
 
 import imp
 from queue import Queue
+
+from rosdep2 import RosdepInternalError
 import rospy
 from std_msgs.msg import String
 from movement.msg import gpvtg,gpgga
+import re
 
-def chkformat(s):
+
+def checksum(s):
+    line=s[len(s)-2:]
+    linedata=re.sub("(\n|\r\n","",s[s.find("$")+1:line.find("*")])
+    chksum=0
+    for i in linedata:
+        chksum ^= ord(i)
+    if hex(chksum)==hex(int(chksum,16)):
+        return True
+    return False
+
+
+
+def callback(data):
+    rospy.loginfo("GPSSignal",data.data)
+    if not checksum(data.data):
+        return
+    s = data.data
     pub = rospy.Publisher("GPGGA", gpgga, queue_size=10)
     pub2= rospy.Publisher("GPVTG", gpvtg, queue_size=10)
     rospy.init_node('GPS_Decode',anonymous=True)
@@ -33,21 +53,28 @@ def chkformat(s):
             else:
                 long = float(longitude_formatted)
                 msggga.long.data=long
-            Hdop = str(Data[4])
+            Hdop = float(Data[4])
             msggga.Hdop.data=Hdop
+            pub.publish(msggga)
         elif Data[0]=="$GPVTG":
             rospy.loginfo("GPVTG Format")
             s=s.split(",")
             Data=(float(s[1]), float(s[7]))
             track=Data[0]
             msgvtg.track.data=track
-            speedkm=Data[2]
+            speedkm=Data[1]
             msgvtg.speedkm.data=speedkm
-        else: 
-            pass
+            pub2.publish(msgvtg)
+        else:
+            return
 
-if __name__ == '__main__':
+def subscribe():
+    rospy.init_node('subscriber_node',anonymous=True)
+    rospy.subscriber("GPS_Raw", String, callback)
+    rospy.spin()
+
+if __name__ =='__main__':
     try:
-        chkformat()
+        subscribe()
     except rospy.ROSInterruptException:
         pass
